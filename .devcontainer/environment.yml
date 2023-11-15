@@ -1,0 +1,23 @@
+name: env_zoo_cwltool
+channels:
+- terradue
+- conda-forge
+- eoepca
+dependencies:
+- python==3.10
+- black
+- pre-commit
+- isort
+- flake8
+- autoflake
+- pylint
+- nose2
+- cwl-wrapper
+- pip
+- pip:
+  - cwl-utils
+  - attrs
+  - python-dotenv
+  - pydantic-yaml
+  - cwltool
+- loguru

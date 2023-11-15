@@ -1,0 +1,29 @@
+{
+	"name": "zoo-cwltool-runner",
+	"build": {
+		"context": "..",
+		"dockerfile": "./Dockerfile"
+	},
+	"settings": {
+		"python.pythonPath": "/opt/conda/envs/env_zoo_cwltool/bin/python",
+		"python.defaultInterpreterPath": "/opt/conda/envs/env_zoo_cwltool/bin/python",
+		"python.testing.unittestArgs": [
+			"-v",
+			"-s",
+			"./test1/",
+			"-p",
+			"test_*.py"
+		],
+		"python.testing.unittestEnabled": true
+	},
+	"extensions": [
+		"ms-python.python"
+	],
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/opt/conda/envs/env_zoo_cwltool/bin"
+	},
+	"postCreateCommand": "/opt/conda/envs/env_zoo_cwltool/bin/pre-commit install",
+	"mounts": [
+		"source=${localEnv:HOME}/.kube,target=/home/mambauser/.kube,type=bind"
+	]
+}
